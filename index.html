@@ -1,0 +1,100 @@
+<html>
+<body>
+<h1 id="header">You will give a gift to:</h1>
+</body>
+
+<script>
+  function findGetParameter(parameterName) {
+    var result = null,
+      tmp = [];
+    location.search
+      .substr(1)
+      .split("&")
+      .forEach(function (item) {
+        tmp = item.split("=");
+        if (tmp[0] === parameterName) result = decodeURIComponent(tmp[1]);
+      });
+    return result;
+  }
+  var codeToNumber = {
+    "tofu": "1",
+    "bolle": "2",
+    "rosin": "3",
+    "lykt": "4",
+    "hanske": "5",
+    "gate": "6",
+    "tennis": "7",
+    "lampe": "8",
+    "sykkel": "9",
+    "sol": "10",
+  };
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  var hash = {
+    "5":"Mike",
+    "1":"Otto",
+    "2":"Anne Christin",
+    "4":"Hanne",
+    "7":"Elisabeth",
+    "3":"Erik Axel",
+    "6":"Frits",
+    "8":"Tage",
+    "9":"Linda",
+    "10": "Annelies"
+  };
+
+
+
+
+
+
+
+
+
+
+
+  var givingHash =  {
+    1: 8,
+    2: 9,
+    3: 1,
+    4: 3,
+    5: 2,
+    6: 5,
+    7: 10,
+    8: 7,
+    9: 4,
+    10:6
+  }
+
+  // console.log(codeToNumber);
+  var giverNum = codeToNumber[findGetParameter("code")];
+  var recNum = givingHash[giverNum];
+  var receiver = hash[recNum];
+  console.log(receiver);
+
+  // To get the right codewords
+  Object.keys(codeToNumber).forEach(function (key) {
+    var value = codeToNumber[key]
+    console.log(key + " " + hash[value]);
+  })
+
+  document.getElementById("header").innerHTML = "Du skal gi gave til: " + receiver
+</script>
+</html>

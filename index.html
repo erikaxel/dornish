@@ -4,6 +4,15 @@
 </body>
 
 <script>
+  /*
+     For å lage en trekning trenger du kun å endre på givingHash.
+     Dersom det er endring i antall deltagere må du sørge for at codeToNumber har riktig antall
+     Dersom det er endring i hvem som er med så må du sørge for at hash er oppdatert
+     For codeToNumber og hash er selve verdiene likegyldige, må bare sørge for at alt alle verdier er representert
+
+     Du får en liste over lenker til de forskjellige i javascript-konsollet.
+   */
+
   function findGetParameter(parameterName) {
     var result = null,
       tmp = [];
@@ -90,9 +99,10 @@
   console.log(receiver);
 
   // To get the right codewords
+  console.log("Send out these link to these people:")
   Object.keys(codeToNumber).forEach(function (key) {
     var value = codeToNumber[key]
-    console.log(key + " " + hash[value]);
+    console.log("https://www.dornish.no/?code=" + key + " " + hash[value]);
   })
 
   document.getElementById("header").innerHTML = "Du skal gi gave til: " + receiver
